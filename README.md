@@ -3,18 +3,48 @@
 Binary sarcasm detection on English tweets, comparing Bag of Words against TF-IDF
 across four traditional classifiers.
 
+## Folder layout
+
+| Folder | What is in it |
+|---|---|
+| `run/` | **everything needed to run the project.** Nothing outside this folder is required |
+| `submission/` | the four files to hand in |
+| `report/` | LaTeX source, figures and build scripts for the paper |
+| `archive/` | development probes and logs, kept for the record, not needed to run |
+| `materials/` | the assignment brief, the course slides, and other groups' projects |
+
+## To run it
+
+Everything lives in `run/`. Open a terminal there and run:
+
+```bash
+"D:/Apps/R/R-4.6.0/bin/Rscript.exe" ids_final_project_group_XX.r > run_output.txt 2>&1
+```
+
+R 4.6.0 is at `D:\Apps\R\R-4.6.0` and is **not** on PATH, which is why the full path
+is used. From RStudio, just open the script and source it.
+
+Takes about two minutes. Line 1 is `setwd()`; change it if the folder moves.
+
+**Inputs** (already in `run/`): `train.csv`, `test.csv`
+**Outputs** (written into `run/`): `model_comparison_results.csv`,
+`ids_final_dataset_sample_group_XX.csv`, `run_output.txt`
+
+Packages needed, all already installed: `tm`, `SnowballC`, `naivebayes`, `glmnet`,
+`LiblineaR`, `rpart`. The script does not install anything.
+
 ## Submission files
+
+Replace `XX` with the real group number in all four names before submitting.
 
 | File | What it is |
 |---|---|
 | `ids_final_project_group_XX.r` | the R program, 325 lines, no comments |
-| `ids_final_project_group_XX.pdf` | the paper, IEEE format, 5 pages |
+| `ids_final_project_group_XX.pdf` | the paper, IEEE format, 6 pages |
 | `ids_final_dataset_sample_group_XX.csv` | 1,000-row representative sample |
 | `ids_final_project_group_XX.zip` | the three files above |
 
-Replace `XX` with the real group number in all four names before submitting.
-
-## Headline results
+## Results
 
 Balanced sample of 30,000 tweets, 3,726 features, 23,843 train / 5,963 test.
 Majority-class baseline is 0.5028.
@@ -30,30 +60,22 @@ Majority-class baseline is 0.5028.
 | TF-IDF | SVM | 0.7672 | 0.7480 | 0.8099 | 0.7777 |
 | TF-IDF | Decision Tree | 0.6646 | 0.7127 | 0.5577 | 0.6257 |
 
-BoW beats TF-IDF for all three linear models. Whole program runs in 2m07s.
-
-## How to run
-
-1. R 4.6.0 is at `D:\Apps\R\R-4.6.0`. It is not on PATH.
-2. Put `train.csv` and `test.csv` in `data/`.
-3. Fix the `setwd()` path on line 1 if the folder moves.
-4. Run:
-
-```bash
-"D:/Apps/R/R-4.6.0/bin/Rscript.exe" ids_final_project_group_XX.r > runs/run.log 2>&1
-```
-
-Packages needed: `tm`, `SnowballC`, `naivebayes`, `glmnet`, `LiblineaR`, `rpart`.
-All are installed already.
+Bag of Words beats TF-IDF for all three linear models.
 
 ## Rebuilding the paper
 
+In `report/`:
+
 ```bash
-cd report && python make_figures.py
+python assemble.py
 ```
 
-Then run `pdflatex ids_final_project_group_XX.tex` twice, using
-`C:\Users\shamv\AppData\Roaming\TinyTeX\bin\windows\pdflatex.exe`.
+That stitches `preamble.tex`, `body.tex` and `floats.tex` into
+`ids_final_project_group_XX.tex`. Then run `pdflatex`, `bibtex`, `pdflatex`,
+`pdflatex` using `C:\Users\shamv\AppData\Roaming\TinyTeX\bin\windows\`.
+
+Edit `body.tex`, never the assembled `.tex`, since assembling overwrites it.
+`make_figures.py`, `make_flow.py` and `make_combined.py` regenerate the figures.
 
 ## Notes for the viva
 

@@ -1,8 +1,10 @@
-data/
-runs/
-*.zip
-Friend's/
+run/train.csv
+run/test.csv
+archive/
+materials/
 *.Rhistory
 .RData
-*.ppt
-*.pptx
+report/*.aux
+report/*.blg
+report/*.out
+report/*.log

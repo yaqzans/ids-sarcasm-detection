@@ -1,4 +1,4 @@
-setwd("D:/AIUB/10. Summer 2026/Final/Data Science/Project")
+setwd("D:/AIUB/10. Summer 2026/Final/Data Science/Project/run")
 
 library(tm)
 library(SnowballC)
@@ -11,8 +11,8 @@ set.seed(123)
 
 cat("\n===== STEP 1: DATA COLLECTION AND EXPLORATION =====\n\n")
 
-train_raw <- read.csv("data/train.csv", stringsAsFactors = FALSE)
-test_raw <- read.csv("data/test.csv", stringsAsFactors = FALSE)
+train_raw <- read.csv("train.csv", stringsAsFactors = FALSE)
+test_raw <- read.csv("test.csv", stringsAsFactors = FALSE)
 df <- rbind(train_raw, test_raw)
 total_tweets <- nrow(df)
 
