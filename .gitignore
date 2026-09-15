@@ -1,0 +1,8 @@
+data/
+runs/
+*.zip
+Friend's/
+*.Rhistory
+.RData
+*.ppt
+*.pptx
