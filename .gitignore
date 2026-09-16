@@ -1,6 +1,3 @@
-run/train.csv
-run/test.csv
-archive/
 materials/
 *.Rhistory
 .RData
@@ -8,3 +5,7 @@ report/*.aux
 report/*.blg
 report/*.out
 report/*.log
+viva/*.aux
+viva/*.out
+viva/*.toc
+viva/*.log
