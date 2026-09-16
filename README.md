@@ -3,7 +3,7 @@
 Binary sarcasm detection on English tweets in R, comparing **Bag of Words** against
 **TF-IDF** across four traditional classifiers.
 
-Coursework for Introduction to Data Science, Summer 2025-26, Project Idea 5.
+Coursework for Introduction to Data Science, Summer 2025-26.
 
 ## What is in this repository
 
